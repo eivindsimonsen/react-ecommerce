@@ -1,0 +1,56 @@
+.product-container {
+  max-width: 500px;
+
+  &-ctas {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+  }
+}
+
+.quantity {
+  display: flex;
+  width: 150px;
+  background-color: $lightGrayishBlue;
+  justify-content: space-between;
+  border-radius: 10px;
+  align-items: center;
+
+  &-btn {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.6rem;
+    color: $orange;
+  }
+
+  &-count {
+    font-weight: $fontWeight700;
+  }
+}
+
+p {
+  font-size: $fontSize;
+  line-height: 2;
+  color: $darkGrayishBlue;
+}
+
+.discounted-price-tag {
+  font-weight: $fontWeight700;
+  font-size: 1.5rem;
+  display: flex;
+
+  & > span {
+    font-size: $fontSize;
+    margin-left: 20px;
+    background-color: $lightGrayishBlue;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
+
+.original-price-tag {
+  text-decoration: line-through;
+  color: $grayishBlue;
+  margin: 10px 0px 30px 0px;
+}

@@ -16,10 +16,14 @@ function Quantity() {
   };
 
   return (
-    <div>
-      <button onClick={decrement}>-</button>
-      <div>{count}</div>
-      <button onClick={increment}>+</button>
+    <div className="quantity">
+      <button className="quantity-btn" onClick={decrement}>
+        -
+      </button>
+      <div className="quantity-count">{count}</div>
+      <button className="quantity-btn" onClick={increment}>
+        +
+      </button>
     </div>
   );
 }
