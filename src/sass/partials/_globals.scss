@@ -1,0 +1,9 @@
+body {
+  font-family: $fontFamily;
+  max-width: 1500px;
+  margin: 0px auto;
+}
+
+.cta {
+  @include shadow-elevation-high();
+}

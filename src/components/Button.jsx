@@ -1,7 +1,7 @@
 import React from "react";
 
 function Button() {
-  return <div>Button</div>;
+  return <button className="cta">Add to Cart</button>;
 }
 
 export default Button;

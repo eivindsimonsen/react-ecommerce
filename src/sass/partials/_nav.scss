@@ -1,0 +1,51 @@
+.logo {
+  font-size: 30px;
+  font-weight: $fontWeight700;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 30px 0px;
+
+  & ul {
+    display: flex;
+    list-style-type: none;
+    margin-top: 22px;
+
+    & li {
+      margin: 0px 10px;
+      color: $grayishBlue;
+    }
+  }
+
+  &::after {
+    content: "";
+    border: 1px solid $lightGrayishBlue;
+    grid-column: span 4;
+    margin: 40px 0px 80px 0px;
+  }
+}
+
+.grid-item-one {
+  display: flex;
+  align-items: center;
+}
+
+.grid-item-two {
+  grid-column: 4/4;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 60px;
+    margin-left: 40px;
+  }
+
+  & .fa-cart-shopping {
+    font-size: 20px;
+    margin-top: 6px;
+    color: $orange;
+  }
+}
