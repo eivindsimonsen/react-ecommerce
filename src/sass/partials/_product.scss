@@ -17,11 +17,12 @@
   align-items: center;
 
   &-btn {
-    padding: 10px 30px;
+    margin: 0px 13px;
     background-color: transparent;
     border: 0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: $orange;
+    font-weight: $fontWeight700;
   }
 
   &-count {
