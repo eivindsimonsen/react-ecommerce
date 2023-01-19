@@ -1,0 +1,16 @@
+.modal-content {
+  all: unset;
+  pointer-events: auto;
+}
+
+.modal-header {
+  border: none;
+  border-radius: 0;
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    --bs-modal-width: inherit;
+  }
+}
