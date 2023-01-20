@@ -104,6 +104,10 @@ function Gallery() {
           </div>
         </div>
       </div>
+      {/* show: a boolean that indicates if the modal should be visible or not.
+          onHide: a callback function that will be called when the modal is closed, which sets the modalShow state to false
+          startIndex: the index of the image that should be displayed first in the carousel when the modal is opened.
+          updateStartIndex: a callback function that updates the startIndex state in the parent component, it will be called when the user selects a new slide in the carousel. */}
       <ProductModal show={modalShow} onHide={() => setModalShow(false)} startIndex={startIndex} updateStartIndex={updateStartIndex} />
     </>
   );

@@ -18,3 +18,38 @@
 .carousel-indicators {
   display: none;
 }
+
+.carousel-item img {
+  border-radius: 15px;
+}
+
+.modal-thumbnail {
+  justify-content: space-evenly;
+
+  & img {
+    width: 80px;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: unset;
+      cursor: auto;
+    }
+  }
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-size: 45% 60%;
+  background-color: $black;
+  border-radius: 50%;
+  padding: 25px;
+}
+
+.carousel-control-next {
+  right: -37px;
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  left: -37px;
+  opacity: 1;
+}
