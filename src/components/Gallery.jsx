@@ -9,6 +9,11 @@ function Gallery() {
   // States
   const [productImage, setProductImage] = useState(product_one);
   const [modalShow, setModalShow] = useState(false);
+  const [startIndex, setStartIndex] = useState();
+
+  const updateStartIndex = (index) => {
+    setStartIndex(index);
+  };
 
   // Refs
   const activeOne = useRef(null);
@@ -43,35 +48,64 @@ function Gallery() {
     }
   }, [productImage]);
 
-  // Set product image to whatever thumbnail image is clicked.
-  const changeImage = (e) => {
-    setProductImage(e.target.src);
-  };
-
   return (
-    <div className="gallery-container">
-      <div className="gallery-container-product">
-        <img onClick={() => setModalShow(true)} src={productImage} alt="A pair of shoes with an orange background" />
-        <ProductModal show={modalShow} onHide={() => setModalShow(false)} />
-        <div className="gallery-container-thumbnails">
-          <div>
-            <img ref={activeOne} onClick={changeImage} src={product_one} alt="A pair of shoes with an orange background" />
-          </div>
+    <>
+      <div className="gallery-container">
+        <div className="gallery-container-product">
+          <img onClick={() => setModalShow(true)} src={productImage} alt="A pair of shoes with an orange background" />
+          <div className="gallery-container-thumbnails">
+            <div>
+              <img
+                ref={activeOne}
+                onClick={(e) => {
+                  setProductImage(e.target.src);
+                  setStartIndex(0);
+                }}
+                src={product_one}
+                alt="A pair of shoes with an orange background"
+              />
+            </div>
 
-          <div>
-            <img ref={activeTwo} onClick={changeImage} src={product_two} alt="A pair of shoes with an orange background" />
-          </div>
+            <div>
+              <img
+                ref={activeTwo}
+                onClick={(e) => {
+                  setProductImage(e.target.src);
+                  setStartIndex(1);
+                }}
+                src={product_two}
+                alt="A pair of shoes with an orange background"
+              />
+            </div>
 
-          <div>
-            <img ref={activeThree} onClick={changeImage} src={product_three} alt="A pair of shoes with an orange background" />
-          </div>
+            <div>
+              <img
+                ref={activeThree}
+                onClick={(e) => {
+                  setProductImage(e.target.src);
+                  setStartIndex(2);
+                }}
+                src={product_three}
+                alt="A pair of shoes with an orange background"
+              />
+            </div>
 
-          <div>
-            <img ref={activeFour} onClick={changeImage} src={product_four} alt="A pair of shoes with an orange background" />
+            <div>
+              <img
+                ref={activeFour}
+                onClick={(e) => {
+                  setProductImage(e.target.src);
+                  setStartIndex(3);
+                }}
+                src={product_four}
+                alt="A pair of shoes with an orange background"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <ProductModal show={modalShow} onHide={() => setModalShow(false)} startIndex={startIndex} updateStartIndex={updateStartIndex} />
+    </>
   );
 }
 
