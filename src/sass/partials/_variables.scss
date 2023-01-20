@@ -20,10 +20,6 @@ $fontWeight400: 400;
 $fontWeight700: 700;
 
 // Shadows
-@mixin shadow-elevation-low {
-  box-shadow: 0.3px 0.5px 0.7px hsl(26 100% 55% / 0.34), 0.4px 0.8px 1px -1.2px hsl(26 100% 55% / 0.34), 1px 2px 2.5px -2.5px hsl(26 100% 55% / 0.34);
-}
-
 @mixin shadow-elevation-medium {
   box-shadow: 0.3px 0.5px 0.5px hsl(26 100% 55% / 0.54), 0.6px 1.2px 1.3px -1.2px hsl(26 100% 55% / 0.45), 1.9px 3.7px 3.9px -2.5px hsl(26 100% 55% / 0.36), 5px 10px 10.5px -3.7px hsl(26 100% 55% / 0.27);
 }
