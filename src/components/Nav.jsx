@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import profile from "../images/image-avatar.png";
 
 function Nav() {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleNav = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <>
       <nav>
         <div className="grid-item-one">
+          <i className="fa-solid fa-bars" onClick={toggleNav}></i>
           <div className="logo">sneakers</div>
-          <ul>
+          <ul className={isActive ? "active" : ""}>
+            <i onClick={toggleNav} className="fa-solid fa-x"></i>
             <li>Collections</li>
             <li>Men</li>
             <li>Women</li>

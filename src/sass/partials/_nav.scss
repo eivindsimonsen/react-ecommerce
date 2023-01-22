@@ -49,3 +49,30 @@ nav {
     color: $orange;
   }
 }
+
+.fa-bars,
+.fa-x {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  .fa-bars,
+  .fa-x {
+    display: block;
+  }
+}
+
+/* Show nav when hamburger icon is clicked */
+nav ul.active {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  background-color: #fff;
+}
