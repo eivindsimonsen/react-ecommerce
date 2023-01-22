@@ -4,6 +4,7 @@ import profile from "../images/image-avatar.png";
 function Nav() {
   const [isActive, setIsActive] = useState(false);
 
+  // Sets the state to true
   const toggleNav = () => {
     setIsActive(!isActive);
   };
@@ -14,6 +15,7 @@ function Nav() {
         <div className="grid-item-one">
           <i className="fa-solid fa-bars" onClick={toggleNav}></i>
           <div className="logo">sneakers</div>
+          {/* If the state is true, add the active class, if false, empty string */}
           <ul className={isActive ? "active" : ""}>
             <i onClick={toggleNav} className="fa-solid fa-x"></i>
             <li>Collections</li>

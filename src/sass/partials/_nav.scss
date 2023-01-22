@@ -7,7 +7,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 30px 0px;
+  padding: 30px 10px;
 
   & ul {
     display: flex;
@@ -41,6 +41,11 @@ nav {
   & img {
     width: 60px;
     margin-left: 40px;
+
+    @media (max-width: 768px) {
+      width: 40px;
+      margin-left: 20px;
+    }
   }
 
   & .fa-cart-shopping {
@@ -48,6 +53,14 @@ nav {
     margin-top: 6px;
     color: $orange;
   }
+}
+
+// Navigation hiding on mobile viewport
+
+.fa-bars {
+  font-size: 1.4rem;
+  padding: 15px;
+  margin-top: 7px;
 }
 
 .fa-bars,
@@ -58,6 +71,10 @@ nav {
 @media (max-width: 768px) {
   nav ul {
     display: none;
+
+    & li:first-of-type {
+      padding-top: 55px;
+    }
   }
 
   .fa-bars,
@@ -74,5 +91,24 @@ nav ul.active {
   top: 0;
   width: 240px;
   height: 100%;
-  background-color: #fff;
+  background-color: $white;
+  animation-name: navSlideIn;
+  animation-duration: 1s;
+
+  & li {
+    font-size: 20px;
+    font-weight: $fontWeight700;
+    color: $black;
+    margin: 0px 0px 25px 0px;
+  }
+}
+
+@keyframes navSlideIn {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
 }
