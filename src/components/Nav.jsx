@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import profile from "../images/image-avatar.png";
-import useLocalStorageValue from "../hooks/useLocalStorageValue";
+import { CartContext } from "../App";
 
 function Nav() {
   const [isActive, setIsActive] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
-  const [storedPrice] = useLocalStorageValue("price", "initialValue");
-  const [storedQuantity] = useLocalStorageValue("quantity", null);
-  const [storedProduct] = useLocalStorageValue("product", "initialValue");
+
+  const product = useContext(CartContext);
+  console.log(product);
 
   // Sets the state to true
   const toggleNav = () => {
@@ -36,14 +36,13 @@ function Nav() {
         </div>
         <div className="grid-item-two">
           <i onClick={showCart} className="fa-solid fa-cart-shopping"></i>
-          <div>{storedQuantity}</div>
+          <div>{product[0]}</div>
 
           <img onClick={showCart} src={profile} alt="User profile" />
           {toggleCart && (
             <div>
-              <div>{storedPrice}</div>
-              <div>{storedQuantity}</div>
-              <div>{storedProduct}</div>
+              <div>{product[0]}</div>
+              <div>{product[1]}</div>
             </div>
           )}
         </div>
