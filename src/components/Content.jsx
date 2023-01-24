@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import Quantity from "./Quantity";
 
 function Content() {
+  const [cartItems, setCartItems] = useState([]);
+  const [findCount, setFindCount] = useState();
+  const [findPrice, setFindPrice] = useState();
+
+  // Pulls data value from the quantity component
+  const pullCount = (data) => {
+    console.log(`Quantity: ${data}`);
+    setFindCount(data);
+  };
+
+  const pullPrice = (data) => {
+    console.log(`Price: ${data}`);
+    setFindPrice(data);
+  };
+
+  // On button click, adds item to cart, with data from quantity component
+  function addToCart(item) {
+    setCartItems([...cartItems, item]);
+    console.log(`${findCount + " " + item} was added to the shopping cart, cost $${findPrice}`);
+  }
+
   return (
     <div className="product-container">
       <div>
@@ -19,8 +40,8 @@ function Content() {
         </div>
       </div>
       <div className="product-container-ctas">
-        <Quantity />
-        <Button />
+        <Quantity quantity={pullCount} price={pullPrice} />
+        <Button addToCart={addToCart} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 
-function Button() {
+function Button({ addToCart }) {
   return (
-    <button className="cta">
+    <button onClick={() => addToCart("Fall Limited Edition Sneakers")} className="cta">
       <i className="fa-solid fa-cart-shopping"></i>
       Add to Cart
     </button>

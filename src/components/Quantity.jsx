@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-function Quantity() {
+function Quantity(props) {
   const [count, setCount] = useState(0);
+  const [price, setPrice] = useState(0);
 
   const increment = () => {
     setCount(count + 1);
+    setPrice(price + 125);
   };
 
   const decrement = () => {
@@ -12,8 +14,12 @@ function Quantity() {
       return;
     } else {
       setCount(count - 1);
+      setPrice(price - 125);
     }
   };
+
+  props.quantity(count);
+  props.price(price);
 
   return (
     <div className="quantity">

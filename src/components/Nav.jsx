@@ -3,10 +3,15 @@ import profile from "../images/image-avatar.png";
 
 function Nav() {
   const [isActive, setIsActive] = useState(false);
+  const [toggleCart, setToggleCart] = useState(false);
 
   // Sets the state to true
   const toggleNav = () => {
     setIsActive(!isActive);
+  };
+
+  const showCart = () => {
+    setToggleCart(!toggleCart);
   };
 
   return (
@@ -26,8 +31,9 @@ function Nav() {
           </ul>
         </div>
         <div className="grid-item-two">
-          <i className="fa-solid fa-cart-shopping"></i>
-          <img src={profile} alt="User profile" />
+          <i onClick={showCart} className="fa-solid fa-cart-shopping"></i>
+          <img onClick={showCart} src={profile} alt="User profile" />
+          {toggleCart && <div>Cart</div>}
         </div>
       </nav>
     </>
