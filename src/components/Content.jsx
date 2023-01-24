@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import Quantity from "./Quantity";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Content() {
   const [cartItems, setCartItems] = useState([]);
   const [findCount, setFindCount] = useState();
   const [findPrice, setFindPrice] = useState();
+
+  const [price, setPrice] = useLocalStorage("price", "bob");
+  const [quantity, setQuantity] = useLocalStorage("quantity", "bob");
+  const [product, setProduct] = useLocalStorage("product", "bob");
 
   // Pulls data value from the quantity component
   const pullCount = (data) => {
@@ -22,6 +27,9 @@ function Content() {
   function addToCart(item) {
     setCartItems([...cartItems, item]);
     console.log(`${findCount + " " + item} was added to the shopping cart, cost $${findPrice}`);
+    setPrice(findPrice);
+    setQuantity(findCount);
+    setProduct(item);
   }
 
   return (
