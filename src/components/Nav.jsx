@@ -1,13 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import profile from "../images/image-avatar.png";
 import { CartContext } from "../App";
 
 function Nav() {
   const [isActive, setIsActive] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
+  const [showQuantityClass, setShowQuantityClass] = useState(false);
 
   const product = useContext(CartContext);
   console.log(product);
+
+  useEffect(() => {
+    if (product[0] > 0) {
+      setShowQuantityClass(true);
+    } else {
+      setShowQuantityClass(false);
+    }
+  }, [product]);
 
   // Sets the state to true
   const toggleNav = () => {
@@ -35,8 +44,10 @@ function Nav() {
           </ul>
         </div>
         <div className="grid-item-two">
-          <i onClick={showCart} className="fa-solid fa-cart-shopping"></i>
-          <div>{product[0]}</div>
+          <div className="shopping-cart-container">
+            <i onClick={showCart} className="fa-solid fa-cart-shopping"></i>
+            <div className={showQuantityClass ? "shopping-cart-quantity" : ""}>{product[0]}</div>
+          </div>
 
           <img onClick={showCart} src={profile} alt="User profile" />
           {toggleCart && (

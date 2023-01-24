@@ -3,22 +3,28 @@ import Button from "./Button";
 import Quantity from "./Quantity";
 
 function Content({ setQuantityCart, setProductCart }) {
-  const [findCount, setFindCount] = useState(0);
-  const [findPrice, setFindPrice] = useState(0);
+  const [findCount, setFindCount] = useState();
+  const [findPrice, setFindPrice] = useState();
 
-  // Pulls data value from the quantity component
+  // Pulls data current count value from the quantity component
   const pullCount = (data) => {
     setFindCount(data);
   };
 
+  // Pulls the current price value from the quantity component
   const pullPrice = (data) => {
     setFindPrice(data);
   };
 
   // On button click, adds item to cart, with data from quantity component
   function addToCart(item) {
-    setQuantityCart(findCount);
-    setProductCart([item, findPrice]);
+    if (findCount > 0) {
+      setQuantityCart(findCount);
+      setProductCart([item, findPrice]);
+    } else {
+      setQuantityCart("");
+      setProductCart("Your cart is empty!");
+    }
   }
 
   return (

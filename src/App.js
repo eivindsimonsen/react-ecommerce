@@ -9,7 +9,7 @@ export const CartContext = React.createContext();
 
 function App() {
   const [quantity, setQuantity] = useState(null);
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState("Your cart is empty!");
 
   return (
     <main>

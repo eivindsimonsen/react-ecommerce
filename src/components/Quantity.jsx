@@ -18,6 +18,7 @@ function Quantity(props) {
     }
   };
 
+  // These values is sent to content.jsx
   props.quantity(count);
   props.price(price);
 
