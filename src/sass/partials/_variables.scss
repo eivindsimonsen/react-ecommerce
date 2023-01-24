@@ -11,7 +11,7 @@ $darkGrayishBlue: hsl(219, 9%, 45%);
 $grayishBlue: hsl(220, 14%, 75%);
 $lightGrayishBlue: hsl(223, 64%, 98%);
 $white: hsl(0, 0%, 100%);
-$black: hsl(0, 0%, 0%);
+$black: hsl(0% 0% 0%);
 
 // Typography
 $fontSize: 16px;
@@ -20,10 +20,19 @@ $fontWeight400: 400;
 $fontWeight700: 700;
 
 // Shadows
+
 @mixin shadow-elevation-medium {
   box-shadow: 0.3px 0.5px 0.5px hsl(26 100% 55% / 0.54), 0.6px 1.2px 1.3px -1.2px hsl(26 100% 55% / 0.45), 1.9px 3.7px 3.9px -2.5px hsl(26 100% 55% / 0.36), 5px 10px 10.5px -3.7px hsl(26 100% 55% / 0.27);
 }
 
 @mixin shadow-elevation-high {
   box-shadow: 0.3px 0.5px 0.5px hsl(26 100% 55% / 0.5), 0.9px 1.8px 1.9px -0.5px hsl(26 100% 55% / 0.46), 1.8px 3.5px 3.7px -1.1px hsl(26 100% 55% / 0.42), 3.3px 6.7px 7px -1.6px hsl(26 100% 55% / 0.38), 6px 12px 12.6px -2.1px hsl(26 100% 55% / 0.34), 10.2px 20.4px 21.4px -2.7px hsl(26 100% 55% / 0.29), 16.4px 32.8px 34.4px -3.2px hsl(26 100% 55% / 0.25), 25px 50px 52.4px -3.7px hsl(26 100% 55% / 0.21);
+}
+
+@mixin shadow-elevation-medium--dark {
+  box-shadow: 0.3px 0.5px 0.5px hsl(0deg 0% 63% / 0.54), 0.6px 1.2px 1.3px -1.2px hsl(0deg 0% 63% / 0.45), 1.9px 3.7px 3.9px -2.5px hsl(0deg 0% 63% / 0.36), 5px 10px 10.5px -3.7px hsl(0deg 0% 63% / 0.27);
+}
+
+@mixin shadow-elevation-high--dark {
+  box-shadow: 0.3px 0.5px 0.5px hsl(0deg 0% 63% / 0.5), 0.9px 1.8px 1.9px -0.5px hsl(0deg 0% 63% / 0.46), 1.8px 3.5px 3.7px -1.1px hsl(0deg 0% 63% / 0.42), 3.3px 6.7px 7px -1.6px hsl(0deg 0% 63% / 0.38), 6px 12px 12.6px -2.1px hsl(0deg 0% 63% / 0.34), 10.2px 20.4px 21.4px -2.7px hsl(0deg 0% 63% / 0.29), 16.4px 32.8px 34.4px -3.2px hsl(0deg 0% 63% / 0.25), 25px 50px 52.4px -3.7px hsl(0deg 0% 63% / 0.21);
 }

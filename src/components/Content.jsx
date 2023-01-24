@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import Quantity from "./Quantity";
 
-function Content({ setQuantityCart, setProductCart }) {
+function Content({ setQuantityCart, setProductCart, setPriceCart }) {
   const [findCount, setFindCount] = useState();
   const [findPrice, setFindPrice] = useState();
 
@@ -20,7 +20,8 @@ function Content({ setQuantityCart, setProductCart }) {
   function addToCart(item) {
     if (findCount > 0) {
       setQuantityCart(findCount);
-      setProductCart([item, findPrice]);
+      setProductCart(item);
+      setPriceCart(findPrice);
     } else {
       setQuantityCart("");
       setProductCart("Your cart is empty!");

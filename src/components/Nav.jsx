@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import profile from "../images/image-avatar.png";
 import { CartContext } from "../App";
+import thumbnail from "../images/image-product-1-thumbnail.jpg";
 
 function Nav() {
   const [isActive, setIsActive] = useState(false);
@@ -51,9 +52,17 @@ function Nav() {
 
           <img onClick={showCart} src={profile} alt="User profile" />
           {toggleCart && (
-            <div>
-              <div>{product[0]}</div>
-              <div>{product[1]}</div>
+            <div className="basket">
+              <div className="basket-title">Cart</div>
+              <hr />
+              <div>
+                <img src={thumbnail} alt="Thumbnail" />
+
+                <div>
+                  {product[1]} x {product[0]} <span>${product[2]}</span>
+                </div>
+              </div>
+              <button className="cta">Checkout</button>
             </div>
           )}
         </div>

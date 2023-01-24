@@ -37,6 +37,7 @@ nav {
   grid-column: 4/4;
   display: flex;
   align-items: center;
+  position: relative;
 
   & img {
     width: 60px;
@@ -53,6 +54,15 @@ nav {
     margin-top: 6px;
     color: $orange;
   }
+}
+
+.basket {
+  background-color: white;
+  @include shadow-elevation-high--dark();
+  position: absolute;
+  right: -109px;
+  bottom: -250px;
+  border-radius: 10px;
 }
 
 .shopping-cart-container {
