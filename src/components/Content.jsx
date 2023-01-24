@@ -8,9 +8,10 @@ function Content() {
   const [findCount, setFindCount] = useState();
   const [findPrice, setFindPrice] = useState();
 
-  const [price, setPrice] = useLocalStorage("price", "bob");
-  const [quantity, setQuantity] = useLocalStorage("quantity", "bob");
-  const [product, setProduct] = useLocalStorage("product", "bob");
+  // Local storage states
+  const [, setPrice] = useLocalStorage("price", "Your cart is empty");
+  const [, setQuantity] = useLocalStorage("quantity", "Your cart is empty");
+  const [, setProduct] = useLocalStorage("product", "Your cart is empty");
 
   // Pulls data value from the quantity component
   const pullCount = (data) => {
@@ -30,6 +31,7 @@ function Content() {
     setPrice(findPrice);
     setQuantity(findCount);
     setProduct(item);
+    window.location.reload(false);
   }
 
   return (
