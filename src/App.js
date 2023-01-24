@@ -15,7 +15,7 @@ function App() {
   return (
     <main>
       <CartContext.Provider value={[quantity, product, price]}>
-        <Nav />
+        <Nav setQuantityCart={setQuantity} setProductCart={setProduct} setPriceCart={setPrice} />
         <section className="wrapper">
           <Gallery />
           <Content setQuantityCart={setQuantity} setProductCart={setProduct} setPriceCart={setPrice} />

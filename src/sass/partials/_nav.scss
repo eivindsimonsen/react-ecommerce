@@ -17,6 +17,21 @@ nav {
     & li {
       margin: 0px 10px;
       color: $grayishBlue;
+      position: relative;
+
+      &:hover {
+        color: $black;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          display: flex;
+          position: absolute;
+          border: 2px solid $orange;
+          width: 100%;
+          bottom: -57px;
+        }
+      }
     }
   }
 
@@ -38,10 +53,16 @@ nav {
   display: flex;
   align-items: center;
   position: relative;
+  cursor: pointer;
 
   & img {
     width: 60px;
     margin-left: 40px;
+    border-radius: 50%;
+
+    &:hover {
+      border: 2px solid $orange;
+    }
 
     @media (max-width: 768px) {
       width: 40px;
@@ -61,16 +82,62 @@ nav {
   @include shadow-elevation-high--dark();
   position: absolute;
   right: -109px;
-  bottom: -250px;
+  bottom: -300px;
   border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  display: grid;
+  grid-template-rows: 50px 1fr 1fr min-content;
+  gap: 25px;
+
+  &-grid-item {
+    &-one {
+      grid-row: 1/1;
+    }
+    &-two {
+      grid-row: 2/4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      & img {
+        border-radius: 5px;
+        margin-left: 0px;
+      }
+    }
+    &-three {
+      grid-row: 4/4;
+    }
+  }
 
   &-details {
     color: $grayishBlue;
+    width: 205px;
   }
 
   &-price {
     color: $veryDarkBlue;
   }
+
+  &-title {
+    color: $veryDarkBlue;
+    font-weight: $fontWeight700;
+  }
+
+  &-cta {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  &-times {
+    font-size: 0.8rem;
+    color: $grayishBlue;
+  }
+}
+
+.fa-trash {
+  color: $grayishBlue;
 }
 
 .shopping-cart-container {

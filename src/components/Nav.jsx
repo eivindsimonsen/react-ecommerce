@@ -3,7 +3,7 @@ import profile from "../images/image-avatar.png";
 import { CartContext } from "../App";
 import thumbnail from "../images/image-product-1-thumbnail.jpg";
 
-function Nav() {
+function Nav({ setQuantityCart, setProductCart, setPriceCart }) {
   const [isActive, setIsActive] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
   const [showQuantityClass, setShowQuantityClass] = useState(false);
@@ -26,6 +26,12 @@ function Nav() {
 
   const showCart = () => {
     setToggleCart(!toggleCart);
+  };
+
+  const deleteProduct = () => {
+    setQuantityCart(null);
+    setProductCart("Your cart is empty!");
+    setPriceCart(null);
   };
 
   return (
@@ -53,16 +59,21 @@ function Nav() {
           <img onClick={showCart} src={profile} alt="User profile" />
           {toggleCart && (
             <div className="basket">
-              <div className="basket-title">Cart</div>
-              <hr />
-              <div>
+              <div className="basket-grid-item-one">
+                <div className="basket-title">Cart</div>
+                <hr />
+              </div>
+
+              <div className="basket-grid-item-two">
                 <img src={thumbnail} alt="Thumbnail" />
 
                 <div className="basket-details">
-                  {product[1]} x {product[0]} <span className="basket-price">${product[2]}</span>
+                  {product[1]} <span className="basket-times">x</span> {product[0]} <span className="basket-price">${product[2]}</span>
                 </div>
+
+                <i onClick={deleteProduct} className="fa-solid fa-trash"></i>
               </div>
-              <button className="cta">Checkout</button>
+              <button className="cta basket-cta basket-grid-item-three">Checkout</button>
             </div>
           )}
         </div>
