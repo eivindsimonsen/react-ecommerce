@@ -58,8 +58,8 @@ function Nav() {
               <div>
                 <img src={thumbnail} alt="Thumbnail" />
 
-                <div>
-                  {product[1]} x {product[0]} <span>${product[2]}</span>
+                <div className="basket-details">
+                  {product[1]} x {product[0]} <span className="basket-price">${product[2]}</span>
                 </div>
               </div>
               <button className="cta">Checkout</button>

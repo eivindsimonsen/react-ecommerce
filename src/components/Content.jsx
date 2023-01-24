@@ -24,6 +24,7 @@ function Content({ setQuantityCart, setProductCart, setPriceCart }) {
       setPriceCart(findPrice);
     } else {
       setQuantityCart("");
+      setPriceCart(0);
       setProductCart("Your cart is empty!");
     }
   }

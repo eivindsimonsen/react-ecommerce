@@ -63,6 +63,14 @@ nav {
   right: -109px;
   bottom: -250px;
   border-radius: 10px;
+
+  &-details {
+    color: $grayishBlue;
+  }
+
+  &-price {
+    color: $veryDarkBlue;
+  }
 }
 
 .shopping-cart-container {
