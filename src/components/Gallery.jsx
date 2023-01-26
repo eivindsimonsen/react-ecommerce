@@ -4,6 +4,7 @@ import product_two from "../../src/images/image-product-2.jpg";
 import product_three from "../../src/images/image-product-3.jpg";
 import product_four from "../../src/images/image-product-4.jpg";
 import ProductModal from "./Modal";
+import Carousel from "react-bootstrap/Carousel";
 
 function Gallery() {
   // States
@@ -109,6 +110,20 @@ function Gallery() {
           startIndex: the index of the image that should be displayed first in the carousel when the modal is opened.
           updateStartIndex: a callback function that updates the startIndex state in the parent component, it will be called when the user selects a new slide in the carousel. */}
       <ProductModal show={modalShow} onHide={() => setModalShow(false)} startIndex={startIndex} updateStartIndex={updateStartIndex} />
+      <Carousel className="mobile-carousel" slide={true}>
+        <Carousel.Item>
+          <img className="d-block w-100" src={product_one} alt="First slide" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={product_two} alt="Second slide" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={product_three} alt="Third slide" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={product_four} alt="Fourth slide" />
+        </Carousel.Item>
+      </Carousel>
     </>
   );
 }

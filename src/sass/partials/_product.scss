@@ -1,20 +1,30 @@
 .product-container {
   max-width: 500px;
+  padding: 20px;
 
   &-ctas {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
+    margin-top: 25px;
+  }
+
+  @media (min-width: 1333px) {
+    padding: 0px;
+
+    &-ctas {
+      grid-template-columns: auto 1fr;
+    }
   }
 }
 
 .quantity {
   display: flex;
-  width: 150px;
   background-color: $lightGrayishBlue;
   justify-content: space-between;
   border-radius: 10px;
   align-items: center;
+  padding: 10px;
 
   &-btn {
     margin: 0px 13px;
@@ -30,12 +40,25 @@
   &-count {
     font-weight: $fontWeight700;
   }
+
+  @media (min-width: 1333px) {
+    width: 150px;
+    padding: 0px;
+  }
 }
 
 p {
   font-size: $fontSize;
   line-height: 2;
   color: $darkGrayishBlue;
+}
+
+.price-container {
+  @media (max-width: 1333px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .discounted-price-tag {
@@ -55,5 +78,9 @@ p {
 .original-price-tag {
   text-decoration: line-through;
   color: $grayishBlue;
-  margin: 10px 0px 30px 0px;
+  margin: 0px;
+
+  @media (min-width: 1333px) {
+    margin: 10px 0px 30px 0px;
+  }
 }

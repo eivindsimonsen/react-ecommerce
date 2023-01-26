@@ -20,7 +20,11 @@
 }
 
 .carousel-item img {
-  border-radius: 15px;
+  border-radius: 0px;
+
+  @media (min-width: 1333px) {
+    border-radius: 15px;
+  }
 }
 
 .modal-thumbnail {

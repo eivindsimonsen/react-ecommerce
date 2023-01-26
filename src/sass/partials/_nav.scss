@@ -7,7 +7,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 30px 10px;
+  padding: 10px 10px;
 
   & ul {
     display: flex;
@@ -40,6 +40,15 @@ nav {
     border: 1px solid $lightGrayishBlue;
     grid-column: span 4;
     margin: 40px 0px 50px 0px;
+    display: none;
+
+    @media (min-width: 1333px) {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1333px) {
+    padding: 30px 10px;
   }
 }
 
@@ -77,18 +86,84 @@ nav {
   }
 }
 
+// Navigation hiding on mobile viewport
+
+.fa-bars {
+  font-size: 1.4rem;
+  padding: 15px;
+  margin-top: 7px;
+}
+
+.fa-bars,
+.fa-x {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+
+    & li:first-of-type {
+      padding-top: 55px;
+    }
+  }
+
+  .fa-bars,
+  .fa-x {
+    display: block;
+  }
+}
+
+/* Show nav when hamburger icon is clicked */
+nav ul.active {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  background-color: $white;
+  animation-name: navSlideIn;
+  animation-duration: 1s;
+  z-index: 2;
+
+  & li {
+    font-size: 20px;
+    font-weight: $fontWeight700;
+    color: $black;
+    margin: 0px 0px 25px 0px;
+  }
+}
+
+@keyframes navSlideIn {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+// Shopping cart styles
 .basket {
   background-color: white;
   @include shadow-elevation-high--dark();
   position: absolute;
-  right: -109px;
-  bottom: -300px;
+  bottom: -280px;
+  right: 0;
   border-radius: 10px;
   padding: 20px;
   width: 350px;
   display: grid;
   grid-template-rows: 50px 1fr 1fr min-content;
   gap: 25px;
+  z-index: 3;
+
+  @media (min-width: 1333px) {
+    right: -109px;
+    bottom: -300px;
+  }
 
   &-grid-item {
     &-one {
@@ -154,62 +229,4 @@ nav {
   position: absolute;
   top: -5px;
   right: -7px;
-}
-
-// Navigation hiding on mobile viewport
-
-.fa-bars {
-  font-size: 1.4rem;
-  padding: 15px;
-  margin-top: 7px;
-}
-
-.fa-bars,
-.fa-x {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-
-    & li:first-of-type {
-      padding-top: 55px;
-    }
-  }
-
-  .fa-bars,
-  .fa-x {
-    display: block;
-  }
-}
-
-/* Show nav when hamburger icon is clicked */
-nav ul.active {
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 240px;
-  height: 100%;
-  background-color: $white;
-  animation-name: navSlideIn;
-  animation-duration: 1s;
-
-  & li {
-    font-size: 20px;
-    font-weight: $fontWeight700;
-    color: $black;
-    margin: 0px 0px 25px 0px;
-  }
-}
-
-@keyframes navSlideIn {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(0%);
-  }
 }
